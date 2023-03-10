@@ -4,9 +4,9 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract AleoToken is ERC20 {
+contract RewardToken is ERC20 {
 
-    constructor(uint256 initialSupply) ERC20("Aleo", "Aleo") {
+    constructor(uint256 initialSupply) ERC20("StReward", "stReward") {
         _mint(msg.sender, initialSupply);
     }
 

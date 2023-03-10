@@ -10,7 +10,7 @@ import "./StandardRewardVault.sol";
 import "./interfaces/IRewardVault.sol";
 
 /**
- * @title StakingHub，存入aleo，赚取奖励
+ * @title StakingHub，存入资产，赚取奖励
  * @dev 继承ERC4626"代币化金库标准"的实现：https://eips.ethereum.org/EIPS/eip-4626[EIP-4626],
  * @dev 并在ERC4626金库标准上增加奖励的相关逻辑
  *
@@ -35,12 +35,12 @@ contract StakingHub is ERC4626, Ownable{
 
 
     /**
-     * @dev 初始化底层资产地址（aleo）、年化利率（默认4%）、LP代币名称和符号(stAleo).
+     * @dev 初始化底层资产地址、年化利率（默认4%）、LP代币名称和符号.
      * @param asset_ 资产地址
      * @param rewardAsset_ 奖励资产地址
      * @param profitRate_ 年利率
      */
-    constructor(address asset_, address rewardAsset_, uint16 profitRate_) ERC4626(IERC20(asset_)) ERC20("stAleo", "stAleo"){
+    constructor(address asset_, address rewardAsset_, uint16 profitRate_) ERC4626(IERC20(asset_)) ERC20("stStaking", "stStaking"){
         require(profitRate_ < 10000, "year's profit rate must less than 100%");
         _profitRate = profitRate_;
 
