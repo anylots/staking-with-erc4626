@@ -1,7 +1,10 @@
 # Staking-With-ERC4626
 
-This repository contains a project about staking with erc4626 and receive rewards;<br /> 
+A project about staking with erc4626 and receive rewards;<br /> 
 Based on ERC-4626;
+
+ERC-4626: Tokenized Vaults Tokenized Vaults with a single underlying EIP-20 token.
+
 
 ## How to deploy
 
