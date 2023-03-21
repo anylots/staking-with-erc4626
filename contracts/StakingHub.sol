@@ -73,11 +73,11 @@ contract StakingHub is ERC4626, Ownable{
         // 每次用户余额变动时，根据变动前的余额和存入时间段，更新待领取奖励
         updateRewardRecord(receiver);
 
-        // 奖励金库减半后，更新利率
-        // if(rewardValultBalance * 2 < IRewardVault(_rewardValult).lastAmount()){
-        //     _profitRate = _profitRate/2;
-        //     IRewardVault(_rewardValult).updateLastAmount(rewardValultBalance);
-        // }
+        // 奖励金库减少后，奖励减半
+        if(rewardValultBalance * 2 < StandardRewardVault(_rewardValult).lastAmount()){
+            _profitRate = _profitRate/2;
+            StandardRewardVault(_rewardValult).updateLastAmount(rewardValultBalance);
+        }
 
 
         // 根据存入资产数量计算需要mint的份额凭证，默认为1:1的关系
