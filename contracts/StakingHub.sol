@@ -311,6 +311,8 @@ contract StakingHub is ERC4626, Ownable{
      *
      */
     function reviewProtocol() external view returns(uint256) {
+        //ERC4626安全提示: 通货膨胀攻击
+        //未使用内部会计账本记录，若有其他逻辑依赖金库资产数值，需要考虑通货膨胀攻击的可能
         uint256 balance = IERC20(super.asset()).balanceOf(address(this));
         return balance;
     }
